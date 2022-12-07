@@ -160,12 +160,8 @@
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="5.LOG&amp;FILE_RENAME.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="432,123.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="5.LOG&amp;FILE_RENAME.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="I_STR_time">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="STR_time" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="I_STR_day">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="STR_day" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="I_STR_time">[STR_time]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="I_STR_day">[STR_day]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -178,11 +174,11 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <State.Transitions>
-          <Transition DisplayName="T1" sap2010:WorkflowViewState.IdRef="Transition_7">
+          <Transition DisplayName="T1" sap2010:WorkflowViewState.IdRef="Transition_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:PointCollection x:Key="ConnectorLocation">300,185.60000000000002 300,244.39999999999998</av:PointCollection>
-                <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                <av:PointCollection x:Key="ConnectorLocation">293.32,185.60000000000002 293.32,215.60000000000002 300,215.60000000000002 300,324.4</av:PointCollection>
+                <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
                 <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -197,7 +193,7 @@
                 </State.Entry>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">233.2,244.39999999999998</av:Point>
+                    <av:Point x:Key="ShapeLocation">233.2,324.4</av:Point>
                     <av:Size x:Key="ShapeSize">133.6,71.2</av:Size>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
