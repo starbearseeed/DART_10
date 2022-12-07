@@ -19,7 +19,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1401.6,1399.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1115.2,1585.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_2_MAKE_FOLDER_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -90,7 +90,10 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="1.MAKE_FOLDER" sap:VirtualizedContainerService.HintSize="544,1334.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="1.MAKE_FOLDER" sap:VirtualizedContainerService.HintSize="544,2085.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="STR_log_result" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -104,7 +107,7 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
     <ui:GetEnvironmentFolder DisplayName="Get Environment Folder" FolderPath="[GET_doc]" sap:VirtualizedContainerService.HintSize="481.6,72" sap2010:WorkflowViewState.IdRef="GetEnvironmentFolder_1" SpecialFolder="MyDocuments" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="481.6,173.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="481.6,204" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -131,9 +134,24 @@
               <InArgument x:TypeArguments="x:String">[STR_folder_result+"\"+I_STR_day+"_전자공시결과(SMJ).xlsx"]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[STR_log_result]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">["Data\Temp\"+I_STR_day+"_LOG"]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
+    <ui:LogMessage sap2010:Annotation.AnnotationText=" &#xA;" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="481.6,146.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;엑셀 파일 복사 : &quot;+STR_copy_excel]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
     <If Condition="[Directory.Exists(STR_folder_result)]" sap:VirtualizedContainerService.HintSize="481.6,494.4" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="400,115.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -156,5 +174,26 @@
       </If.Else>
     </If>
     <ui:CopyFile ContinueOnError="{x:Null}" Destination="[STR_copy_excel]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="481.6,164.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="Data\Input\DART_전자공시.xlsx" />
+    <If Condition="[Directory.Exists(STR_log_result)]" sap:VirtualizedContainerService.HintSize="481.6,494.4" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,115.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,213.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[STR_log_result]" />
+        </Sequence>
+      </If.Else>
+    </If>
   </Sequence>
 </Activity>

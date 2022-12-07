@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1401.6,826.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1115.2,658.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_5_LOG_FILE_RENAME_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -87,7 +87,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:GetEnvironmentFolder DisplayName="Get Environment Folder" FolderPath="[GET_appdata]" sap:VirtualizedContainerService.HintSize="337.6,72" sap2010:WorkflowViewState.IdRef="GetEnvironmentFolder_1" SpecialFolder="LocalApplicationData" />
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;\Data\Temp\20221207_LOG\&quot;+&quot;Log_&quot;+I_STR_time+&quot;.txt&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="337.6,164.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Path="[GET_appdata+&quot;\UiPath\Logs\&quot;+DateTime.Today.ToString(&quot;yyyy-MM-dd&quot;)+&quot;_Execution.log&quot;]" />
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;Data\Temp\&quot;+I_STR_day+&quot;_LOG\&quot;+&quot;Log_&quot;+I_STR_time+&quot;.txt&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="337.6,164.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Path="[GET_appdata+&quot;\UiPath\Logs\&quot;+DateTime.Today.ToString(&quot;yyyy-MM-dd&quot;)+&quot;_Execution.log&quot;]" />
     <ui:RenameFileX DisplayName="Rename File" FilePath="[I_STR_day+&quot;\&quot;+I_STR_day+&quot;_전자공시결과(SMJ).xlsx&quot;]" sap:VirtualizedContainerService.HintSize="337.6,153.6" sap2010:WorkflowViewState.IdRef="RenameFileX_1" KeepExtension="True" NewName="[I_STR_day+&quot;_전자공시결과(SMJ)_&quot;+I_STR_time]" />
   </Sequence>
 </Activity>
